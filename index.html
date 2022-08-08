@@ -145,19 +145,6 @@
 <a class="twitter" href=""><span uk-icon="twitter"></span></a>
 </div>
 
-
-<?if(!empty($message)){?>
-    <div id="message_modal" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body uk-width-medium uk-text-center">
-            <button class="uk-modal-close-default" type="button" uk-close></button>
-            <span class="uk-text-<?=$message["error"]?"danger":"success"?>"><?= $message["message"]?></span>
-        </div>
-    </div>
-    <script>
-        UIkit.modal("#message_modal").show();
-    </script>
-<?}?>
-
 <script>
     window.onload = function (){
         setTimeout(()=>{
