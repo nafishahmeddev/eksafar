@@ -1,30 +1,3 @@
-<?
-
-include  "vendor/autoload.php";
-global $conn, $system_techs;
-$faker = Faker\Factory::create();
-$message = [];
-if(isset($_POST["send_message"])) {
-    $to_email = "hello@nafish.me";
-    $subject = "Enquiry from website";
-    $message = "From:".$_POST["name"]."\n".
-        "Email:".$_POST["email"]."\n".
-        "Mobile:".$_POST["mobile"]."\n\n".
-        $_POST["message"];
-    $headers = 'From: hello@nafish.me';
-    if(mail($to_email,$subject,$message,$headers)){
-        $message = [
-            "error"=>0,
-            "message"=>"Successfully mail sent"
-        ];
-    } else{
-        $message = [
-            "error"=>1,
-            "message"=>"Ops! something went wrong"
-        ];
-    }
-}
-?>
 <html lang="en-gb">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -168,7 +141,7 @@ if(isset($_POST["send_message"])) {
 
 <div class="social-icons" style="">
 <a class="facebook"><span uk-icon="facebook"></span></a>
-<a class="instagram"><span uk-icon="instagram"></span></a>
+<a class="instagram" href="https://www.instagram.com/eksafar.club/"><span uk-icon="instagram"></span></a>
 <a class="twitter"><span uk-icon="twitter"></span></a>
 </div>
 
