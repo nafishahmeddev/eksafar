@@ -13,26 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
     <title>EKSAFAR</title>
-    <script>
-        async function onSubmit(ev) {
-            ev.preventDefault();
-            const fd = new FormData(ev.target);
-            fd.append("travellingDate", new Date(fd.get("travellingDate")).toISOString())
-            fetch("https://eksafar-backend.herokuapp.com/inquiry", {
-                method: "POST",
-                body: fd
-            }).then(res => res.json()).then(res => {
-                console.log(res);
-                alert("Successfully sent inquiry");
-            }).catch(ex => {
-                console.log(ex);
-                alert("something went wrong")
-            })
-
-
-        }
-    </script>
 </head>
+
 <body class="body">
     <section id="preloader"
         class="uk-position-fixed uk-height-1-1 uk-width-1-1 uk-position-top-left uk-background-muted uk-flex uk-flex-middle uk-flex-center"
@@ -80,19 +62,20 @@
                     </div>
 
                     <div class="uk-width-1-2@m">
-                        <label for="no_of_person">Number of person</label>
-                        <input type="number" min="1" class="uk-input" name="no_of_person" id="no_of_person">
+                        <label for="noOfPerson">Number of person</label>
+                        <input type="number" min="1" class="uk-input" name="noOfPerson" id="noOfPerson">
                     </div>
 
                     <div class="uk-width-1-2@m">
                         <label for="destination">Destination</label>
                         <select class="uk-select" name="destination" id="destination">
+                            <option value="Dandeli, Karnataka">Dandeli</option>
                         </select>
                     </div>
 
                     <div class="uk-width-1-2@m">
-                        <label for="traveling_date">Traveling date</label>
-                        <input type="date" class="uk-input" name="traveling_date" id="traveling_date">
+                        <label for="travelingDate">Traveling date</label>
+                        <input type="date" class="uk-input" name="travellingDate" id="travellingDate">
                     </div>
 
 
@@ -163,6 +146,36 @@
                     document.querySelector("#preloader").style.display = "none";
                 }, 250);
             }, 0);
+
+        }
+
+        
+        async function onSubmit(ev) {
+            ev.preventDefault();
+            const fd = new FormData(ev.target);
+            const data = {
+                "name": fd.get("name"),
+                "mobile": fd.get("mobile"),
+                "email": fd.get("email"),
+                "noOfPerson": fd.get("noOfPerson"),
+                "destination": fd.get("destination"),
+                "travellingDate": new Date(fd.get("travellingDate")).toISOString()
+            }
+            fetch("https://eksafar-backend.herokuapp.com/inquiry", {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(res => res.json()).then(res => {
+                console.log(res);
+                alert("Successfully sent inquiry");
+            }).catch(ex => {
+                console.log(ex);
+                alert("something went wrong")
+            })
+
 
         }
     </script>
