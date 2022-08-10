@@ -17,6 +17,7 @@
         async function onSubmit(ev) {
             ev.preventDefault();
             const fd = new FormData(ev.target);
+            fd.append("travellingDate", new Date(fd.get("travellingDate")).toISOString())
             fetch("https://eksafar-backend.herokuapp.com/inquiry", {
                 method: "POST",
                 body: fd
