@@ -12,6 +12,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
 
     <title>EKSAFAR</title>
+    <script>
+        window.onload = function(){
+            document.getElementById("inquiry_form").addEventListener("submit", async (event)=>{
+                event.preventDefault();
+                const fd = new FormData(event.target);
+                const res= await fetch("https://eksafar-backend.herokuapp.com/",{
+                    method:"POST",
+                    body: fd
+                });
+
+                console.log(res)
+
+            })
+        }
+    </script>
 </head>
 <body class="body">
 <section id="preloader"
@@ -36,7 +51,7 @@
     <div class="uk-card uk-card-default uk-container-small uk-margin-auto uk-card-body uk-card-large" style="transform: translateY(-150px)" >
         <h3 class="uk-text-center">CLAIM YOUR FREE TOUR ITINERARY</h3>
 
-        <form method="post" enctype="multipart/form-data" class="uk-margin-medium-top">
+        <form method="post" enctype="multipart/form-data" class="uk-margin-medium-top" id="inquiry_form">
             <input type="hidden" name="send_message">
             <div class="uk-child-width-1-1 uk-grid-medium" uk-grid>
                 <div class="uk-width-1-2@m">
