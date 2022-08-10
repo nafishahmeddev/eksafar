@@ -17,7 +17,7 @@
         async function onSubmit(ev) {
             ev.preventDefault();
             const fd = new FormData(ev.target);
-            fetch("https://eksafar-backend.herokuapp.com/", {
+            fetch("https://eksafar-backend.herokuapp.com/inquiry", {
                 method: "POST",
                 body: fd
             }).then(res => res.json()).then(res => {
