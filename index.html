@@ -17,12 +17,17 @@
             document.getElementById("inquiry_form").addEventListener("submit", async (event)=>{
                 event.preventDefault();
                 const fd = new FormData(event.target);
-                const res= await fetch("https://eksafar-backend.herokuapp.com/",{
+                fetch("https://eksafar-backend.herokuapp.com/",{
                     method:"POST",
                     body: fd
-                });
+                }).then(res=>res.json()).then(res=>{
+                    console.log(res);
+                    alert("Successfully sent inquiry");
+                }).catch(ex=>{
+                    console.log(ex);
+                    alert("something went wrong")
+                })
 
-                console.log(res)
 
             })
         }
