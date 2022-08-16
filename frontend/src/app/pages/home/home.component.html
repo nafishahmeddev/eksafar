@@ -1,0 +1,110 @@
+<section id="preloader"
+    class="uk-position-fixed uk-height-1-1 uk-width-1-1 uk-position-top-left uk-background-muted uk-flex uk-flex-middle uk-flex-center uk-hidden"
+    style="z-index: 99">
+    <img src="assets/images/logo-original.png" style="height: 90px">
+</section>
+<video playsinline autoplay muted loop
+    style="height:100vh; width: 100vw; position: fixed; object-fit: cover; z-index: -1">
+    <source src="assets/videos/banner.mp4" type="video/mp4">
+</video>
+<section class="uk-section uk-section-xlarge uk-position-relative  uk-flex uk-flex-middle banner">
+    <div class="uk-container uk-container-small uk-text-center">
+        <div class="uk-light uk-margin-large-top">
+            <img src="assets/images/logo.png" width="170px" class="uk-margin-medium-top">
+            <h1 class="uk-heading uk-heading-medium uk-text-uppercase uk-margin-small">EKSAFAR</h1>
+            <p class="uk-text-primary uk-width-xlarge@m uk-margin-auto">
+                Created for enthusiast travelers who just want to explore the world and want to discover new
+                Cultures!
+            </p>
+        </div>
+    </div>
+</section>
+<section class="uk-section uk-section-default p-top-none uk-padding">
+    <div class="uk-card uk-card-default uk-container-small uk-margin-auto uk-card-body uk-card-large uk-position-relative"
+        style="transform: translateY(-150px)">
+        <h3 class="uk-text-center">CLAIM YOUR FREE TOUR ITINERARY</h3>
+
+        <form method="post" enctype="multipart/form-data" class="uk-margin-medium-top">
+            <input type="hidden" name="send_message">
+            <div class="uk-child-width-1-1 uk-grid-medium" uk-grid>
+                <div class="uk-width-1-2@m">
+                    <label for="name">Name</label>
+                    <input class="uk-input {{nameControl.invalid && (nameControl.dirty || nameControl.touched) && 'uk-form-danger'}}" name="name" id="name" required [formControl]="nameControl">
+                </div>
+
+                <div class="uk-width-1-2@m">
+                    <label for="mobile">Mobile</label>
+                    <input type="number" min="6000000000" max="9999999999" class="uk-input {{mobileControl.invalid && ( mobileControl.touched) && 'uk-form-danger'}}" name="mobile" id="mobile" [formControl]="mobileControl">
+                </div>
+
+                <div class="uk-width-1-2@m">
+                    <label for="email">Email</label>
+                    <input type="email" class="uk-input {{emailControl.invalid && (emailControl.touched) && 'uk-form-danger'}}" name="email" id="email" required [formControl]="emailControl">
+                </div>
+
+                <div class="uk-width-1-2@m">
+                    <label for="noOfPerson">Number of person</label>
+                    <input type="number" min="1" class="uk-input {{noOfPersonControl.invalid && (noOfPersonControl.touched) && 'uk-form-danger'}}" name="noOfPerson" id="noOfPerson" [formControl]="noOfPersonControl">
+                </div>
+
+                <div class="uk-width-1-2@m">
+                    <label for="destination">Destination</label>
+                    <select class="uk-select {{destinationControl.invalid && (destinationControl.touched) && 'uk-form-danger'}}" name="destination" id="destination" [formControl]="destinationControl">
+                        <option value="Dandeli, Karnataka">Dandeli</option>
+                    </select>
+                </div>
+
+                <div class="uk-width-1-2@m">
+                    <label for="travelingDate">Traveling date</label>
+                    <input type="date" class="uk-input {{travellingDateControl.invalid && (travellingDateControl.touched) && 'uk-form-danger'}}" name="travellingDate" id="travellingDate" [formControl]="travellingDateControl">
+                </div>
+
+
+
+                <div class="uk-text-center uk-margin-medium-top">
+                    <button type="button" class="uk-button uk-button-primary" (click)="onSubmit()">
+                        Send Message
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div class="uk-overlay uk-overlay-default uk-position-absolute uk-position-cover uk-flex uk-flex-middle uk-flex-center" *ngIf="formLoading">
+            <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
+        </div>
+    </div>
+
+
+    <div style="margin-top: -150px">
+        <div class="uk-container uk-margin-large-top uk-hidden">
+            <div class="uk-text-center uk-width-xlarge uk-margin-auto">
+                <h3>YOUR COMPANY MISSION STATEMENT OR ULTIMATE VALUE.</h3>
+                <p>Add some more descriptive content here to describe your product or service. What your offer is
+                    and how you can improve your potential customers daily experience. This could also be an
+                    explanation of the details of your offer if you are running a specific promotion.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="uk-section uk-section-large uk-section-muted">
+    <div class="uk-container uk-container uk-margin-large">
+        <div class="uk-child-width-1-2@m uk-child-width-1-1@s uk-grid-match uk-grid-large uk-flex-center" uk-grid>
+            <div>
+
+                <img src="assets/images/event-dandeli.jpeg" class=" uk-width-1-1">
+                <div class="uk-margin-medium-top">
+                    <h3 class="uk-margin-remove-bottom">DANDELI (2D /1N)</h3>
+                    <p class="uk-margin-small-top">
+                        Dandeli is a town in the western Indian state of Karnataka. The Dandeli Wildlife Sanctuary,
+                        with its trails and dense forests, is home to animals including black panthers, monkeys and
+                        elephants, as well as many bird species. A temple stands at the entrance to the limestone
+                        Kavala Caves, known for their stalagmite formations. West of the caves, Anshi National Park
+                        encompasses the Kali Tiger Reserve.
+                    </p>
+                    <a class="uk-button uk-button-primary"
+                        href="https://wa.me/+916364594648?text=Hey+I+am+intersted+in+dandeli+trip.">Enquiry Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
