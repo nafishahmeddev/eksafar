@@ -1,10 +1,8 @@
-import { application, Handler } from "express";
 import { Router } from "express";
-import moment from "moment";
 import Inquiry from "../models/inquiry";
 const router = Router()
 
-router.post("/inquiry", async (req: any, res: any) => {
+router.post("/", async (req: any, res: any) => {
     try {
         const { name, mobile, email, noOfPerson, destination, travellingDate } = req.body;
         let inquiry = await new Inquiry({
@@ -26,9 +24,8 @@ router.post("/inquiry", async (req: any, res: any) => {
             message: "Something went wrong"
         });
     }
-
-    
-   
 })
+
+
 
 export default router;

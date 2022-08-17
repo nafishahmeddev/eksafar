@@ -3,11 +3,14 @@
     style="z-index: 99">
     <img src="assets/images/logo-original.png" style="height: 90px">
 </section>
-<video playsinline autoplay muted loop
-    style="height:100vh; width: 100vw; position: fixed; object-fit: cover; z-index: -1">
-    <source src="assets/videos/banner.mp4" type="video/mp4">
-</video>
-<section class="uk-section uk-section-xlarge uk-position-relative  uk-flex uk-flex-middle banner">
+<div style="height:100vh; width: 100vw; position: fixed; top:0; left: 0; z-index: -2;">
+    <video playsinline autoplay muted loop
+        style="height:100vh; width: 100vw;  object-fit: cover;  ">
+        <source src="assets/videos/banner.mp4" type="video/mp4">
+    </video>
+    <div class="uk-position-absolute uk-position-top-left uk-height-1-1 uk-width-1-1 uk-overlay uk-overlay-primary"></div>
+</div>
+<section class="uk-section uk-section-xlarge uk-position-relative  uk-flex uk-flex-middle">
     <div class="uk-container uk-container-small uk-text-center">
         <div class="uk-light uk-margin-large-top">
             <img src="assets/images/logo.png" width="170px" class="uk-margin-medium-top">
@@ -29,34 +32,46 @@
             <div class="uk-child-width-1-1 uk-grid-medium" uk-grid>
                 <div class="uk-width-1-2@m">
                     <label for="name">Name</label>
-                    <input class="uk-input {{nameControl.invalid && (nameControl.dirty || nameControl.touched) && 'uk-form-danger'}}" name="name" id="name" required [formControl]="nameControl">
+                    <input
+                        class="uk-input {{nameControl.invalid && (nameControl.dirty || nameControl.touched) && 'uk-form-danger'}}"
+                        name="name" id="name" required [formControl]="nameControl">
                 </div>
 
                 <div class="uk-width-1-2@m">
                     <label for="mobile">Mobile</label>
-                    <input type="number" min="6000000000" max="9999999999" class="uk-input {{mobileControl.invalid && ( mobileControl.touched) && 'uk-form-danger'}}" name="mobile" id="mobile" [formControl]="mobileControl">
+                    <input type="number" min="6000000000" max="9999999999"
+                        class="uk-input {{mobileControl.invalid && ( mobileControl.touched) && 'uk-form-danger'}}"
+                        name="mobile" id="mobile" [formControl]="mobileControl">
                 </div>
 
                 <div class="uk-width-1-2@m">
                     <label for="email">Email</label>
-                    <input type="email" class="uk-input {{emailControl.invalid && (emailControl.touched) && 'uk-form-danger'}}" name="email" id="email" required [formControl]="emailControl">
+                    <input type="email"
+                        class="uk-input {{emailControl.invalid && (emailControl.touched) && 'uk-form-danger'}}"
+                        name="email" id="email" required [formControl]="emailControl">
                 </div>
 
                 <div class="uk-width-1-2@m">
                     <label for="noOfPerson">Number of person</label>
-                    <input type="number" min="1" class="uk-input {{noOfPersonControl.invalid && (noOfPersonControl.touched) && 'uk-form-danger'}}" name="noOfPerson" id="noOfPerson" [formControl]="noOfPersonControl">
+                    <input type="number" min="1"
+                        class="uk-input {{noOfPersonControl.invalid && (noOfPersonControl.touched) && 'uk-form-danger'}}"
+                        name="noOfPerson" id="noOfPerson" [formControl]="noOfPersonControl">
                 </div>
 
                 <div class="uk-width-1-2@m">
                     <label for="destination">Destination</label>
-                    <select class="uk-select {{destinationControl.invalid && (destinationControl.touched) && 'uk-form-danger'}}" name="destination" id="destination" [formControl]="destinationControl">
+                    <select
+                        class="uk-select {{destinationControl.invalid && (destinationControl.touched) && 'uk-form-danger'}}"
+                        name="destination" id="destination" [formControl]="destinationControl">
                         <option value="Dandeli, Karnataka">Dandeli</option>
                     </select>
                 </div>
 
                 <div class="uk-width-1-2@m">
                     <label for="travelingDate">Traveling date</label>
-                    <input type="date" class="uk-input {{travellingDateControl.invalid && (travellingDateControl.touched) && 'uk-form-danger'}}" name="travellingDate" id="travellingDate" [formControl]="travellingDateControl">
+                    <input type="date"
+                        class="uk-input {{travellingDateControl.invalid && (travellingDateControl.touched) && 'uk-form-danger'}}"
+                        name="travellingDate" id="travellingDate" [formControl]="travellingDateControl">
                 </div>
 
 
@@ -69,7 +84,8 @@
             </div>
         </form>
 
-        <div class="uk-overlay uk-overlay-default uk-position-absolute uk-position-cover uk-flex uk-flex-middle uk-flex-center" *ngIf="formLoading">
+        <div class="uk-overlay uk-overlay-default uk-position-absolute uk-position-cover uk-flex uk-flex-middle uk-flex-center"
+            *ngIf="formLoading">
             <span class="uk-margin-small-right" uk-spinner="ratio: 3"></span>
         </div>
     </div>

@@ -1,14 +1,35 @@
+<header uk-sticky>
+    <nav class="uk-navbar-container uk-container uk-container-expand uk-navbar-transparent uk-light" uk-navbar>
+        <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="#">
+                <img src="assets/images/logo.png" style="width: 60px;" />
+                <span>EKSAFAR</span>
+            </a>
+        </div>
+        <div class="uk-navbar-right">
+
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#">Parent</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <router-outlet></router-outlet>
-<section class="uk-section-muted uk-section uk-section-secondary" style="background-color: var(--color-secondary-dark)">
-    <div class="uk-container-small uk-container uk-text-center">
-        <p><a routerLink="/">Home</a> | <a routerLink="/privacy">Privacy & Policy</a></p>
-        <a class="uk-button uk-button-text">&copy; EKSAFAR CLUB. All rights reserved.</a>
+<footer>
+    <section class="uk-section-muted uk-section uk-section-secondary"
+        style="background-color: var(--color-secondary-dark)">
+        <div class="uk-container-small uk-container uk-text-center">
+            <p><a routerLink="/">Home</a> | <a routerLink="/privacy">Privacy & Policy</a></p>
+            <a class="uk-button uk-button-text">&copy; EKSAFAR CLUB. All rights reserved.</a>
+        </div>
+
+    </section>
+    <div class="social-icons">
+        <a class="facebook" href="https://www.facebook.com/eksafar.club"><span uk-icon="facebook"></span></a>
+        <a class="instagram" href="https://www.instagram.com/eksafar.club/"><span uk-icon="instagram"></span></a>
+        <a class="twitter" href=""><span uk-icon="twitter"></span></a>
     </div>
 
-</section>
-
-<div class="social-icons">
-    <a class="facebook" href="https://www.facebook.com/eksafar.club"><span uk-icon="facebook"></span></a>
-    <a class="instagram" href="https://www.instagram.com/eksafar.club/"><span uk-icon="instagram"></span></a>
-    <a class="twitter" href=""><span uk-icon="twitter"></span></a>
-</div>
+</footer>
